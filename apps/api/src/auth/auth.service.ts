@@ -48,6 +48,8 @@ export class AuthService {
   }
 
   async getUser() {
-    return this.userService.getUser();
+    return {
+			data: await this.userService.getUser()
+		}
   }
 }
