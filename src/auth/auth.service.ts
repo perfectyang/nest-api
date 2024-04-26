@@ -18,7 +18,7 @@ export class AuthService {
   async login(dto: CreateUserDto) {
     const user = await this.userService.findName(dto);
     if (!user) {
-      throw new HttpException('User not exists', HttpStatus.BAD_REQUEST);
+      throw new HttpException('用户不存在', HttpStatus.BAD_REQUEST);
     }
     if (!(await argon2.verify(user.password, dto.password))) {
       throw new UnauthorizedException();
@@ -34,7 +34,7 @@ export class AuthService {
   async signup(dto: CreateUserDto) {
     const user = await this.userService.findName(dto);
     if (user) {
-      throw new HttpException('User already exists', HttpStatus.BAD_REQUEST);
+      throw new HttpException('用户已存在', HttpStatus.BAD_REQUEST);
     }
 
     const res = await this.userService.createUser(dto);
