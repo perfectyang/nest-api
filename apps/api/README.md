@@ -26,11 +26,13 @@ $ pnpm run start:prod
 ## 在api路径下添加.env文件,里面填写mysql连接信息
 
 ```
-// 这是mysql的配置 earthworm_nest此处是数据库名
-DATABASE_URL="mysql://root:12345678@127.0.0.1:3306/earthworm_nest"
+// 这是mysql的配置 jgl此处是数据库名
+DATABASE_URL="mysql://root:12345678@127.0.0.1:3306/jgl"
 SECRET="12345678"
 
 // 这是redis的配置
 REDIS_URL="redis://127.0.0.1:6379"
+
+要先启动mysql和redis服务
 
 ```
