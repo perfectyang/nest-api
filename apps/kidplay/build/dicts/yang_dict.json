@@ -1,0 +1,26 @@
+[
+    {
+        "name": "zoo",
+        "usphone": "zuː",
+        "ukphone": "zuː",
+        "trans": [
+            "n. 动物园"
+        ]
+    },
+    {
+        "name": "zoom",
+        "usphone": "zuːm",
+        "ukphone": "zuːm",
+        "trans": [
+            "v. 快速移动，迅速前往，猛涨"
+        ]
+    },
+    {
+        "name": "elephant",
+        "usphone": "'ɛlɪfənt",
+        "ukphone": "'ɛlɪfənt",
+        "trans": [
+            "n.大象"
+        ]
+    }
+]
