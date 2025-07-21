@@ -8,6 +8,7 @@
   },
   "scripts": {
     "serve": "pnpm -F api start:dev",
+    "db": "pnpm -F api init:db",
     "web": "pnpm -F web dev"
   },
   "keywords": [],

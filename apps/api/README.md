@@ -12,6 +12,10 @@ $ pnpm install
 
 ## Running the app
 
+## 先在根路径下初始化数据库
+
+pnpm run init:db
+
 ```bash
 # development
 $ pnpm run start
@@ -30,10 +34,11 @@ $ pnpm run start:prod
 ```
 // 这是mysql的配置 jgl此处是数据库名
 DATABASE_URL="mysql://root:12345678@127.0.0.1:3306/jgl"
-SECRET="12345678"
+SECRET="12345678" // 这是jwt的密钥也就是数据库密码
 
 // 这是redis的配置
 REDIS_URL="redis://127.0.0.1:6379"
+
 
 
 ```
