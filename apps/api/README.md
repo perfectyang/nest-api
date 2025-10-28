@@ -27,6 +27,8 @@ $ pnpm run start:dev
 $ pnpm run start:prod
 ```
 
+## 本地安装docker 并启动mysql和redis
+
 ## 在api路径下添加.env文件,里面填写mysql连接信息
 
 ### 要先启动mysql和redis服务
