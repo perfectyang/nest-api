@@ -1,16 +1,16 @@
-import { users } from '../db/schema';
+import { user } from '../db/schema';
 import { Inject, Injectable } from '@nestjs/common';
 import { DB, DbType } from '../global/providers/db.provider';
 import { eq } from 'drizzle-orm';
 import * as argon2 from 'argon2';
 
 export class CreateUserDto {
-  name: string;
+  user: string;
   password: string;
 }
 
 export class UserEntity {
-  name: string;
+  user: string;
   password: string;
 }
 
@@ -19,7 +19,7 @@ export class UserService {
   constructor(@Inject(DB) private db: DbType) {}
 
   async createUser(dto: CreateUserDto) {
-    const [res] = await this.db.insert(users).values({
+    const [res] = await this.db.insert(user).values({
       ...dto,
       password: await argon2.hash(dto.password),
     });
@@ -29,19 +29,21 @@ export class UserService {
   }
 
   async getUser() {
-    const res = await this.db.query.users.findMany({
+    const res = await this.db.query.user.findMany({
       with: {},
       columns: {
         id: true,
-        name: true,
+        user: true,
       },
     });
     return res;
   }
 
   async findName(dto: CreateUserDto) {
-    return this.db.query.users.findFirst({
-      where: eq(users.name, dto.name),
+    console.log('dto', dto)
+    
+    return this.db.query.user.findFirst({
+      where: eq(user.user, dto.user),
     });
   }
 }

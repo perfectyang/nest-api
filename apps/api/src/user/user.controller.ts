@@ -9,8 +9,14 @@ export class UserController {
   login(@Body() dto: CreateUserDto) {
     return this.userService.createUser(dto);
   }
+
   @Get('get')
   getUser() {
     return this.userService.getUser();
+  }
+
+  @Post('getById')
+  getById(@Body() dto: CreateUserDto) {
+    return this.userService.findName(dto);
   }
 }

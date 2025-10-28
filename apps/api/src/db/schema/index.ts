@@ -1,7 +1,14 @@
-import { users } from './users';
+import { user } from './user';
+import { project } from './project';
+import { language } from './language';
+import { translate } from './translate';
 
-export * from './users';
+export * from './user';
+export * from './project';
 
 export const schemas = {
-  users,
+  user,
+  project,
+  language,
+  translate,
 };

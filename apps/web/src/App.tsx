@@ -9,7 +9,7 @@ function App() {
       <span
         onClick={() => {
           console.log("axios", axios.get);
-          axios.get("http://localhost:3001/api/user/get").then(
+          axios.get("http://localhost:3004/api/user/get").then(
             (rs) => {
               console.log("rs", rs.data.data);
             },
