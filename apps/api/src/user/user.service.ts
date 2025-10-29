@@ -19,8 +19,6 @@ export class UserService {
   constructor(@Inject(DB) private db: DbType) {}
 
   async createUser(dto: CreateUserDto) {
-    console.log('dto', dto);
-
     const [res] = await this.db.insert(user).values({
       ...dto,
       password: await argon2.hash(dto.password),

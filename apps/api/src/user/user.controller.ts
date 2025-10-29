@@ -1,24 +1,25 @@
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { CreateUserDto, UserService } from './user.service';
+import { ErrorResponse } from 'src/common/base';
 
-@Controller('api/user')
-export class UserController {
-  constructor(private readonly userService: UserService) {}
+@Controller('user')
+export class UserController extends ErrorResponse {
+  constructor(private readonly userService: UserService) {
+    super();
+  }
 
   @Post('add')
   add(@Body() dto: CreateUserDto) {
-    console.log('接参', dto);
-
-    return this.userService.createUser(dto);
+    return this.tryError(this.userService.createUser(dto));
   }
 
   @Get('get')
   getUser() {
-    return this.userService.getUser();
+    return this.tryError(this.userService.getUser());
   }
 
   @Post('getById')
   getById(@Body() dto: CreateUserDto) {
-    return this.userService.findName(dto);
+    return this.tryError(this.userService.findName(dto));
   }
 }
