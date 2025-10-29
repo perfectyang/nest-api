@@ -1,8 +1,10 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { CreateProject, ProjectService } from './project.service';
 import { ErrorResponse } from 'src/common/base';
+import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('project')
+@UseGuards(AuthGuard)
 export class ProjectController extends ErrorResponse {
   constructor(private readonly service: ProjectService) {
     super();

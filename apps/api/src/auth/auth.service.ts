@@ -7,13 +7,16 @@ import {
 import { CreateUserDto, UserService } from '../user/user.service';
 import { JwtService } from '@nestjs/jwt';
 import * as argon2 from 'argon2';
+import { ErrorResponse } from 'src/common/base';
 
 @Injectable()
-export class AuthService {
+export class AuthService extends ErrorResponse {
   constructor(
     private userService: UserService,
     private jwtService: JwtService,
-  ) {}
+  ) {
+    super();
+  }
 
   async login(dto: CreateUserDto) {
     const user = await this.userService.findName(dto);
@@ -25,10 +28,10 @@ export class AuthService {
     }
 
     const payload = { userId: user.id, user: user.user };
-    return {
+    return this.tryError({
       token: await this.jwtService.signAsync(payload),
       user: payload,
-    };
+    });
   }
 
   async signup(dto: CreateUserDto) {
@@ -39,17 +42,17 @@ export class AuthService {
 
     const res = await this.userService.createUser(dto);
     const payload = { userId: res.id, user: dto.user };
-    return {
+    return this.tryError({
       token: await this.jwtService.signAsync(payload),
       user: {
         ...payload,
       },
-    };
+    });
   }
 
   async getUser() {
-    return {
+    return this.tryError({
       data: await this.userService.getUser(),
-    };
+    });
   }
 }
