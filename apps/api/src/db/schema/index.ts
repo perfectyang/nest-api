@@ -1,13 +1,14 @@
-import { users } from './users';
-import { course_type } from './course_type';
-import { course_class } from './course_class';
+import { user } from './user';
+import { project } from './project';
+import { language } from './language';
+import { translate } from './translate';
 
-export * from './users';
-export * from './course_type';
-export * from './course_class';
+export * from './user';
+export * from './project';
 
 export const schemas = {
-  users,
-  course_type,
-  course_class,
+  user,
+  project,
+  language,
+  translate,
 };

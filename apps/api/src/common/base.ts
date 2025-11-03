@@ -6,7 +6,7 @@ export class ErrorResponse {
     return {
       message: 'done',
       data,
-      code: '200',
+      code: 200,
     };
   }
 }
