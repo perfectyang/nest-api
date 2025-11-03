@@ -5,6 +5,8 @@ import { translate } from './translate';
 
 export * from './user';
 export * from './project';
+export * from './language';
+export * from './translate';
 
 export const schemas = {
   user,

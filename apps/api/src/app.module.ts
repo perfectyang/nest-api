@@ -7,7 +7,9 @@ import { AuthModule } from './auth/auth.module';
 import { EmailModule } from './email/email.module';
 // import { GlobalExceptionFilter } from './global/globalExceptionFilter';
 import { ProjectModule } from './project/project.module';
+// import { LanguageModule } from './project/language.module';
 import { RedisModule } from '@nestjs-modules/ioredis';
+import { LanguageModule } from './language/language.module';
 
 @Module({
   imports: [
@@ -16,6 +18,7 @@ import { RedisModule } from '@nestjs-modules/ioredis';
     AuthModule,
     EmailModule,
     ProjectModule,
+    LanguageModule,
     RedisModule.forRootAsync({
       useFactory: () => ({
         type: 'single',
