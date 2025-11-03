@@ -1,0 +1,26 @@
+{
+  "name": "@nest/db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "init:ci": "tsx src/run.ts",
+    "init:test": "drizzle-kit push --config=drizzle.config.test.ts",
+    "init": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "drizzle-kit": "^0.20.17",
+    "pg": "^8.11.5"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.30.9",
+    "postgres": "^3.4.4",
+    "@paralleldrive/cuid2": "2.2.2"
+  }
+}
