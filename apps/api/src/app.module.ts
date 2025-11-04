@@ -10,6 +10,7 @@ import { ProjectModule } from './project/project.module';
 // import { LanguageModule } from './project/language.module';
 import { RedisModule } from '@nestjs-modules/ioredis';
 import { LanguageModule } from './language/language.module';
+import { TranslateModule } from './translate/translate.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { LanguageModule } from './language/language.module';
     EmailModule,
     ProjectModule,
     LanguageModule,
+    TranslateModule,
     RedisModule.forRootAsync({
       useFactory: () => ({
         type: 'single',
